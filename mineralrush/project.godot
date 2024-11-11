@@ -13,3 +13,7 @@ config_version=5
 config/name="MineralRush"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://RECURSOS/icon.svg"
+
+[layer_names]
+
+2d_navigation/layer_1="capa 1"
