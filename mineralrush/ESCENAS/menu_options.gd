@@ -1,16 +1,16 @@
 class_name OptionsMenu
 extends Control
 
-@onready var exit_button = $MarginContainer/VBoxContainer/Button as Button
+@onready var exit_button: Button = $MarginContainer/VBoxContainer/Exit_button as Button
+
 
 signal exit_options_menu
 
 func ready():
-	exit_button.button_down.connection(on_exit_pressed)
+	exit_button.button_down.connect(_on_exit_button_pressed)
 	set_process(false)
 	
 	
-func on_exit_pressed() -> void:
+func _on_exit_button_pressed() -> void:
 	exit_options_menu.emit()
 	set_process(false)
-		

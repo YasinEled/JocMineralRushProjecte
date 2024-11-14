@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnsj81jirigye"]
+[gd_scene load_steps=7 format=3 uid="uid://dnsj81jirigye"]
 
 [ext_resource type="Script" path="res://ESCENAS/menu.gd" id="1_rrvyb"]
 [ext_resource type="Theme" uid="uid://hmji7xn3qyr0" path="res://RECURSOS/menu/MenuDiscordDrawing.tres" id="2_nxtt5"]
 [ext_resource type="Theme" uid="uid://juk1js1pnboh" path="res://RECURSOS/menu/MenuWebDrawing.tres" id="3_4fay2"]
+[ext_resource type="FontFile" uid="uid://bfauo7wkc6aib" path="res://RECURSOS/Pixeled.ttf" id="3_m658g"]
 [ext_resource type="Theme" uid="uid://b26agqovtdb31" path="res://RECURSOS/menu/MenuButtons.tres" id="4_ibcwf"]
+[ext_resource type="PackedScene" uid="uid://be385umlkleg7" path="res://ESCENAS/menu_options.tscn" id="5_v5e28"]
 
 [node name="MENU" type="Control"]
 layout_mode = 3
@@ -14,78 +16,89 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rrvyb")
 
-[node name="DiscordButton" type="Button" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -71.0
-offset_right = 98.0
-grow_vertical = 0
-theme = ExtResource("2_nxtt5")
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
 
-[node name="WebButton" type="Button" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="separator" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="StartGameButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = ExtResource("4_ibcwf")
+theme_override_fonts/font = ExtResource("3_m658g")
+theme_override_font_sizes/font_size = 13
+text = "START GAME"
+
+[node name="OptionButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = ExtResource("4_ibcwf")
+theme_override_fonts/font = ExtResource("3_m658g")
+theme_override_font_sizes/font_size = 13
+text = "OPTIONS"
+icon_alignment = 1
+
+[node name="Exit_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("4_ibcwf")
+theme_override_fonts/font = ExtResource("3_m658g")
+theme_override_font_sizes/font_size = 10
+text = "EXIT GAME"
+
+[node name="DiscordButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -95.0
-offset_top = -81.0
+offset_left = -62.0
+offset_top = -42.0
 grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("2_nxtt5")
+
+[node name="WebButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -47.0
+offset_right = 59.0
 grow_vertical = 0
 theme = ExtResource("3_4fay2")
 
-[node name="OptionButton" type="Button" parent="."]
+[node name="MENU-OPTIONS" parent="." instance=ExtResource("5_v5e28")]
+visible = false
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -176.0
-offset_top = -2.0
-offset_right = 176.0
-offset_bottom = 124.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("4_ibcwf")
-text = "OPTIONS"
 
-[node name="StartGameButton" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -253.0
-offset_top = -140.5
-offset_right = 253.0
-offset_bottom = 22.5
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("4_ibcwf")
-text = "START GAME"
-
-[node name="ExitGame" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -176.0
-offset_top = 112.0
-offset_right = 176.0
-offset_bottom = 238.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("4_ibcwf")
-text = "EXIT GAME
-"
-
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Exit_button" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="DiscordButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="WebButton" to="." method="_on_web_button_pressed"]
-[connection signal="pressed" from="ExitGame" to="." method="_on_exit_game_pressed"]

@@ -46,5 +46,3 @@ size_flags_vertical = 10
 theme_override_fonts/font = ExtResource("1_wr7fc")
 text = "EXIT
 "
-
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit_button" to="." method="_on_exit_button_pressed"]
