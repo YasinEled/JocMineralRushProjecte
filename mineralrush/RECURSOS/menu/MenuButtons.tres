@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=8 format=3 uid="uid://b26agqovtdb31"]
 
-[ext_resource type="FontFile" uid="uid://da6ishjdfukgg" path="res://RECURSOS/Pixeled.ttf" id="1_2280r"]
+[ext_resource type="FontFile" uid="uid://bfauo7wkc6aib" path="res://RECURSOS/Pixeled.ttf" id="1_2280r"]
 [ext_resource type="Texture2D" uid="uid://djwvho1m6a0av" path="res://RECURSOS/menu/Pergamino.png" id="2_bbu5w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ujvq6"]
@@ -15,26 +15,8 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g38ug"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(1, 1, 1, 0.75)
-draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-expand_margin_left = 2.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pujpb"]
+texture = ExtResource("2_bbu5w")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n2q1x"]
 texture = ExtResource("2_bbu5w")
@@ -42,17 +24,8 @@ texture = ExtResource("2_bbu5w")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nofpu"]
 texture = ExtResource("2_bbu5w")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ugph"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0, 0, 0, 0.6)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_88xtj"]
+texture = ExtResource("2_bbu5w")
 
 [resource]
 Button/colors/font_color = Color(0, 0, 0, 1)
@@ -75,7 +48,7 @@ Button/constants/outline_size = 0
 Button/font_sizes/font_size = 16
 Button/fonts/font = ExtResource("1_2280r")
 Button/styles/disabled = SubResource("StyleBoxFlat_ujvq6")
-Button/styles/focus = SubResource("StyleBoxFlat_g38ug")
+Button/styles/focus = SubResource("StyleBoxTexture_pujpb")
 Button/styles/hover = SubResource("StyleBoxTexture_n2q1x")
 Button/styles/normal = SubResource("StyleBoxTexture_nofpu")
-Button/styles/pressed = SubResource("StyleBoxFlat_4ugph")
+Button/styles/pressed = SubResource("StyleBoxTexture_88xtj")
