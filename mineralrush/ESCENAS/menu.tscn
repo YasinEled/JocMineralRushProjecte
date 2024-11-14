@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnsj81jirigye"]
+[gd_scene load_steps=5 format=3 uid="uid://dnsj81jirigye"]
 
 [ext_resource type="Script" path="res://ESCENAS/menu.gd" id="1_rrvyb"]
 [ext_resource type="Theme" uid="uid://hmji7xn3qyr0" path="res://RECURSOS/menu/MenuDiscordDrawing.tres" id="2_nxtt5"]
 [ext_resource type="Theme" uid="uid://juk1js1pnboh" path="res://RECURSOS/menu/MenuWebDrawing.tres" id="3_4fay2"]
+[ext_resource type="Theme" uid="uid://b26agqovtdb31" path="res://RECURSOS/menu/MenuButtons.tres" id="4_ibcwf"]
 
 [node name="MENU" type="Control"]
 layout_mode = 3
@@ -36,20 +37,55 @@ grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("3_4fay2")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 377.0
-offset_top = 191.0
-offset_right = 871.0
-offset_bottom = 393.0
+[node name="OptionButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = -2.0
+offset_right = 176.0
+offset_bottom = 124.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_ibcwf")
+text = "OPTIONS"
 
-[node name="StartGameButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
+[node name="StartGameButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -253.0
+offset_top = -140.5
+offset_right = 253.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_ibcwf")
 text = "START GAME"
 
-[node name="OptionButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "OPTIONS
+[node name="ExitGame" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = 112.0
+offset_right = 176.0
+offset_bottom = 238.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_ibcwf")
+text = "EXIT GAME
 "
 
 [connection signal="pressed" from="DiscordButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="WebButton" to="." method="_on_web_button_pressed"]
+[connection signal="pressed" from="ExitGame" to="." method="_on_exit_game_pressed"]
