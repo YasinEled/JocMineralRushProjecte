@@ -38,11 +38,18 @@ grow_vertical = 0
 theme = ExtResource("3_4fay2")
 
 [node name="OptionButton" type="Button" parent="."]
-layout_mode = 2
-offset_left = 324.0
-offset_top = 392.0
-offset_right = 829.0
-offset_bottom = 554.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = -2.0
+offset_right = 176.0
+offset_bottom = 124.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("4_ibcwf")
 text = "OPTIONS"
 
@@ -54,13 +61,31 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -253.0
-offset_top = -81.5
+offset_top = -140.5
 offset_right = 253.0
-offset_bottom = 81.5
+offset_bottom = 22.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_ibcwf")
 text = "START GAME"
 
+[node name="ExitGame" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = 112.0
+offset_right = 176.0
+offset_bottom = 238.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_ibcwf")
+text = "EXIT GAME
+"
+
 [connection signal="pressed" from="DiscordButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="WebButton" to="." method="_on_web_button_pressed"]
+[connection signal="pressed" from="ExitGame" to="." method="_on_exit_game_pressed"]

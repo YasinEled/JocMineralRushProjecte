@@ -18,3 +18,7 @@ func _on_button_pressed() -> void:
 
 func _on_web_button_pressed() -> void:
 	OS.shell_open(urlWeb);
+
+
+func _on_exit_game_pressed() -> void:
+	get_tree().quit()
