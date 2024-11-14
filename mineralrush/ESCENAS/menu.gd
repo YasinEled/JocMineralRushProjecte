@@ -1,10 +1,11 @@
 extends Control
 
 
-@onready var menu_options: OptionsMenu = $"MENU-OPTIONS" as OptionsMenu
-@onready var exit_button: Button = $MarginContainer/HBoxContainer/VBoxContainer/Exit_button as Button
-@onready var option_button: Button = $MarginContainer/HBoxContainer/VBoxContainer/OptionButton as Button
-@onready var margin_container: MarginContainer = $MarginContainer as MarginContainer
+@onready var menu_options: OptionsMenu = $"Map/MENU-OPTIONS" as OptionsMenu
+
+@onready var exit_button: Button = $Map/MarginContainer/HBoxContainer/VBoxContainer/Exit_button as Button
+@onready var option_button: Button = $Map/MarginContainer/HBoxContainer/VBoxContainer/OptionButton as Button
+@onready var margin_container: MarginContainer = $Map/MarginContainer as MarginContainer
 
 
 
