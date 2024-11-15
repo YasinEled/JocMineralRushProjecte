@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://be385umlkleg7"]
+[gd_scene load_steps=7 format=3 uid="uid://be385umlkleg7"]
 
 [ext_resource type="Script" path="res://ESCENAS/menu_options.gd" id="1_ay138"]
 [ext_resource type="FontFile" uid="uid://bfauo7wkc6aib" path="res://RECURSOS/Pixeled.ttf" id="1_wr7fc"]
+[ext_resource type="PackedScene" uid="uid://dkkucj20fgiet" path="res://ESCENAS/setting_tab_container.tscn" id="3_dloa8"]
+[ext_resource type="Theme" uid="uid://b26agqovtdb31" path="res://RECURSOS/menu/MenuButtons.tres" id="4_30jee"]
+[ext_resource type="Texture2D" uid="uid://djwvho1m6a0av" path="res://RECURSOS/menu/Pergamino.png" id="5_dvm3h"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_38vdp"]
+texture = ExtResource("5_dvm3h")
 
 [node name="MENU-OPTIONS" type="Control"]
 layout_mode = 3
@@ -34,16 +40,23 @@ size_flags_horizontal = 4
 size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("1_wr7fc")
 theme_override_font_sizes/font_size = 32
-text = "OPCIONS"
+text = "OPTIONS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="setting_tab_container" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_dloa8")]
+layout_mode = 2
+size_flags_vertical = 3
+
 [node name="Exit_button" type="Button" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(120, 0)
+custom_minimum_size = Vector2(120, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 10
+size_flags_vertical = 8
+theme = ExtResource("4_30jee")
 theme_override_fonts/font = ExtResource("1_wr7fc")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxTexture_38vdp")
 text = "EXIT
 "
 
