@@ -47,3 +47,7 @@ func _on_exit_button_pressed() -> void:
 func on_exit_option_menu() -> void:
 	menu_options.visible = false
 	margin_container.visible = true 
+
+
+func _on_start_game_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://ESCENAS/game.tscn")

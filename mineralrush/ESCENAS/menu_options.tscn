@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://be385umlkleg7"]
 
-[ext_resource type="Script" path="res://ESCENAS/menu_options.gd" id="1_ay138"]
+[ext_resource type="Script" path="res://SCRIPTS/menu_options.gd" id="1_ay138"]
 [ext_resource type="FontFile" uid="uid://bfauo7wkc6aib" path="res://RECURSOS/Pixeled.ttf" id="1_wr7fc"]
 
 [node name="MENU-OPTIONS" type="Control"]

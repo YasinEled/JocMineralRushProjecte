@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dnsj81jirigye"]
 
-[ext_resource type="Script" path="res://ESCENAS/menu.gd" id="1_rrvyb"]
+[ext_resource type="Script" path="res://SCRIPTS/menu.gd" id="1_rrvyb"]
 [ext_resource type="PackedScene" uid="uid://d1i8r4exxov34" path="res://ESCENAS/map.tscn" id="2_cstxc"]
 [ext_resource type="Theme" uid="uid://hmji7xn3qyr0" path="res://RECURSOS/menu/MenuDiscordDrawing.tres" id="2_nxtt5"]
 [ext_resource type="Theme" uid="uid://juk1js1pnboh" path="res://RECURSOS/menu/MenuWebDrawing.tres" id="3_4fay2"]
@@ -97,6 +97,7 @@ theme = ExtResource("3_4fay2")
 [node name="MENU-OPTIONS" parent="Map" instance=ExtResource("5_v5e28")]
 visible = false
 
+[connection signal="pressed" from="Map/MarginContainer/HBoxContainer/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="Map/MarginContainer/HBoxContainer/VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="Map/MarginContainer/HBoxContainer/VBoxContainer/Exit_button" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="Map/DiscordButton" to="." method="_on_button_pressed"]
