@@ -50,4 +50,4 @@ func on_exit_option_menu() -> void:
 
 
 func _on_start_game_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://ESCENAS/game.tscn")
+	get_tree().change_scene_to_file("res://ESCENAS/GAME/game.tscn")
