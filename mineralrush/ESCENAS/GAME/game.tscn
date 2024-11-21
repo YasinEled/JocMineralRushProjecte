@@ -5,8 +5,10 @@
 
 [node name="Node2D" type="Node2D"]
 
+[node name="Map" parent="." instance=ExtResource("2_jkggi")]
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(701, 395)
 script = ExtResource("1_tcwm6")
 
-[node name="Map" parent="." instance=ExtResource("2_jkggi")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
