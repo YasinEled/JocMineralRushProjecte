@@ -90,15 +90,16 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	# Maneja el zoom con la rueda del ratón
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_UP:
-		# Acercar (aumentar el zoom)
-		if current_zoom_index > 0:
-			current_zoom_index -= 1
-			target_zoom = zoom_levels[current_zoom_index]["zoom"]
-			apply_zoom_level(current_zoom_index)  # Aplica el nuevo nivel de zoom
-	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 		# Alejar (reducir el zoom)
 		if current_zoom_index < zoom_levels.size() - 1:
 			current_zoom_index += 1
+			target_zoom = zoom_levels[current_zoom_index]["zoom"]
+			apply_zoom_level(current_zoom_index)  # Aplica el nuevo nivel de zoom
+			# Acercar (aumentar el zoom)
+	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+		
+		if current_zoom_index > 0:
+			current_zoom_index -= 1
 			target_zoom = zoom_levels[current_zoom_index]["zoom"]
 			apply_zoom_level(current_zoom_index)  # Aplica el nuevo nivel de zoom
 
