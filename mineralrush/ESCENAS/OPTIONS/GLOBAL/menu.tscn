@@ -1,12 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://dnsj81jirigye"]
+[gd_scene load_steps=14 format=3 uid="uid://dnsj81jirigye"]
 
 [ext_resource type="Script" path="res://SCRIPTS/OPTIONS/menu.gd" id="1_gq77o"]
 [ext_resource type="PackedScene" uid="uid://d1i8r4exxov34" path="res://ESCENAS/GAME/map.tscn" id="2_8o7o1"]
+[ext_resource type="Texture2D" uid="uid://2s17am4mgxl2" path="res://RECURSOS/menu/Clouds/cloud1.png" id="3_7fqeu"]
 [ext_resource type="Theme" uid="uid://b26agqovtdb31" path="res://RECURSOS/menu/MenuButtons.tres" id="3_r7f5b"]
 [ext_resource type="FontFile" uid="uid://bfauo7wkc6aib" path="res://RECURSOS/Pixeled.ttf" id="4_i8y6b"]
+[ext_resource type="Script" path="res://ESCENAS/OPTIONS/GLOBAL/cloud.gd" id="4_v0m5v"]
 [ext_resource type="Theme" uid="uid://hmji7xn3qyr0" path="res://RECURSOS/menu/MenuDiscordDrawing.tres" id="5_8fw2a"]
 [ext_resource type="Theme" uid="uid://juk1js1pnboh" path="res://RECURSOS/menu/MenuWebDrawing.tres" id="6_6727e"]
+[ext_resource type="Texture2D" uid="uid://b5vkne8w36no1" path="res://RECURSOS/menu/Clouds/nube3.png" id="6_ro1j2"]
+[ext_resource type="Texture2D" uid="uid://bpplifqump1em" path="res://RECURSOS/menu/Clouds/nube2.png" id="6_xskmg"]
 [ext_resource type="PackedScene" uid="uid://be385umlkleg7" path="res://ESCENAS/OPTIONS/GLOBAL/menu_options.tscn" id="7_o77sj"]
+[ext_resource type="Texture2D" uid="uid://7y0ou858k5o5" path="res://RECURSOS/menu/Clouds/nube4.png" id="7_r2xsk"]
+[ext_resource type="AudioStream" uid="uid://bc1wml3wgu4wl" path="res://RECURSOS/menu/MenuTheme.mp3" id="8_ad4hc"]
 
 [node name="MENU" type="Control"]
 layout_mode = 3
@@ -18,6 +24,54 @@ grow_vertical = 2
 script = ExtResource("1_gq77o")
 
 [node name="Map" parent="." instance=ExtResource("2_8o7o1")]
+
+[node name="cloud1" type="Sprite2D" parent="Map"]
+position = Vector2(108, 262.75)
+scale = Vector2(0.230556, 0.177083)
+texture = ExtResource("3_7fqeu")
+script = ExtResource("4_v0m5v")
+
+[node name="shadowCloud1" type="Sprite2D" parent="Map/cloud1"]
+modulate = Color(0, 0, 0, 0.298039)
+position = Vector2(-41.2047, 1005.12)
+scale = Vector2(0.548192, 0.544949)
+texture = ExtResource("3_7fqeu")
+
+[node name="cloud2" type="Sprite2D" parent="Map"]
+position = Vector2(-291, 437)
+scale = Vector2(0.201578, 0.148087)
+texture = ExtResource("6_xskmg")
+script = ExtResource("4_v0m5v")
+
+[node name="shadowCloud2" type="Sprite2D" parent="Map/cloud2"]
+modulate = Color(0, 0, 0, 0.184314)
+position = Vector2(-59.5304, 1391.08)
+scale = Vector2(0.550941, 0.467957)
+texture = ExtResource("6_xskmg")
+
+[node name="cloud3" type="Sprite2D" parent="Map"]
+position = Vector2(-889, 66)
+scale = Vector2(0.193465, 0.101591)
+texture = ExtResource("6_ro1j2")
+script = ExtResource("4_v0m5v")
+
+[node name="shadowCloud3" type="Sprite2D" parent="Map/cloud3"]
+modulate = Color(0, 0, 0, 0.172549)
+position = Vector2(-139.56, 2116.32)
+scale = Vector2(0.551484, 0.533389)
+texture = ExtResource("6_ro1j2")
+
+[node name="cloud4" type="Sprite2D" parent="Map"]
+position = Vector2(836, 115)
+scale = Vector2(0.193465, 0.101591)
+texture = ExtResource("7_r2xsk")
+script = ExtResource("4_v0m5v")
+
+[node name="shadowCloud5" type="Sprite2D" parent="Map/cloud4"]
+modulate = Color(0, 0, 0, 0.247059)
+position = Vector2(-417.313, 2164.48)
+scale = Vector2(0.418638, 0.418638)
+texture = ExtResource("7_r2xsk")
 
 [node name="MarginContainer" type="MarginContainer" parent="Map"]
 anchors_preset = 15
@@ -96,6 +150,11 @@ theme = ExtResource("6_6727e")
 
 [node name="MENU-OPTIONS" parent="Map" instance=ExtResource("7_o77sj")]
 visible = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_ad4hc")
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="Map/MarginContainer/HBoxContainer/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="Map/MarginContainer/HBoxContainer/VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]
