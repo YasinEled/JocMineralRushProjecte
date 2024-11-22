@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://2s17am4mgxl2" path="res://RECURSOS/menu/Clouds/cloud1.png" id="3_7fqeu"]
 [ext_resource type="Theme" uid="uid://b26agqovtdb31" path="res://RECURSOS/menu/MenuButtons.tres" id="3_r7f5b"]
 [ext_resource type="FontFile" uid="uid://bfauo7wkc6aib" path="res://RECURSOS/Pixeled.ttf" id="4_i8y6b"]
-[ext_resource type="Script" path="res://ESCENAS/OPTIONS/GLOBAL/cloud.gd" id="4_v0m5v"]
+[ext_resource type="Script" path="res://SCRIPTS/GAME/cloud.gd" id="4_v0m5v"]
 [ext_resource type="Theme" uid="uid://hmji7xn3qyr0" path="res://RECURSOS/menu/MenuDiscordDrawing.tres" id="5_8fw2a"]
 [ext_resource type="Theme" uid="uid://juk1js1pnboh" path="res://RECURSOS/menu/MenuWebDrawing.tres" id="6_6727e"]
 [ext_resource type="Texture2D" uid="uid://b5vkne8w36no1" path="res://RECURSOS/menu/Clouds/nube3.png" id="6_ro1j2"]
@@ -69,7 +69,7 @@ script = ExtResource("4_v0m5v")
 
 [node name="shadowCloud5" type="Sprite2D" parent="Map/cloud4"]
 modulate = Color(0, 0, 0, 0.247059)
-position = Vector2(-417.313, 2164.48)
+position = Vector2(-31.0133, 2037.58)
 scale = Vector2(0.418638, 0.418638)
 texture = ExtResource("7_r2xsk")
 
