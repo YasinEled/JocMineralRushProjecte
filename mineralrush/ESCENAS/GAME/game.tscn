@@ -45,7 +45,7 @@ scale = Vector2(0.0844448, 0.157183)
 texture = ExtResource("8_va23s")
 script = ExtResource("6_bb44e")
 
-[node name="shadowCloud5" type="Sprite2D" parent="Map"]
+[node name="shadowCloud4" type="Sprite2D" parent="Map"]
 modulate = Color(0, 0, 0, 0.247059)
 z_index = 1
 position = Vector2(-522, 153)
