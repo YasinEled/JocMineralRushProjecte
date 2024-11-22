@@ -151,6 +151,18 @@ theme = ExtResource("6_6727e")
 [node name="MENU-OPTIONS" parent="Map" instance=ExtResource("7_o77sj")]
 visible = false
 
+[node name="cloud5" type="Sprite2D" parent="Map"]
+position = Vector2(849, 405)
+scale = Vector2(0.193465, 0.101591)
+texture = ExtResource("6_ro1j2")
+script = ExtResource("4_v0m5v")
+
+[node name="shadowCloud3" type="Sprite2D" parent="Map/cloud5"]
+modulate = Color(0, 0, 0, 0.172549)
+position = Vector2(-139.56, 2116.32)
+scale = Vector2(0.551484, 0.533389)
+texture = ExtResource("6_ro1j2")
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_ad4hc")
 autoplay = true

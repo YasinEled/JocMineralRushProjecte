@@ -18,13 +18,6 @@ script = ExtResource("1_btuxk")
 
 [node name="Map" parent="." instance=ExtResource("2_jkggi")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(701, 395)
-script = ExtResource("1_tcwm6")
-
-
-[node name="Map" parent="." instance=ExtResource("2_jkggi")]
-
 [node name="shadowCloud2" type="Sprite2D" parent="Map"]
 modulate = Color(0, 0, 0, 0.184314)
 z_index = 1
@@ -56,6 +49,12 @@ scale = Vector2(0.131511, 0.0889187)
 texture = ExtResource("9_mf8q5")
 script = ExtResource("6_bb44e")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(701, 395)
+script = ExtResource("1_tcwm6")
+
+[node name="Map2" parent="." instance=ExtResource("2_jkggi")]
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_p8kbp")
 autoplay = true
@@ -84,4 +83,3 @@ theme_override_fonts/font = ExtResource("12_n4eau")
 theme_override_font_sizes/font_size = 20
 text = "0
 "
-
