@@ -2,6 +2,7 @@ class_name OptionsMenu
 extends Control
 
 @onready var exit_button: Button = $MarginContainer/VBoxContainer/Exit_button as Button
+@onready var menu_options: OptionsMenu = $"."
 
 
 signal exit_options_menu
@@ -12,5 +13,6 @@ func ready():
 	
 	
 func _on_exit_button_pressed() -> void:
+	menu_options.visible = false
 	exit_options_menu.emit()
 	set_process(false)
