@@ -17,9 +17,7 @@ var urlWeb = "http://www.mineralrush.cat/index.html"
 func _ready() -> void:
 	handle_connecting_signals()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+
 
 func _on_button_pressed() -> void:
 	OS.shell_open(urlDiscord);
