@@ -73,84 +73,6 @@ position = Vector2(-31.0133, 2037.58)
 scale = Vector2(0.418638, 0.418638)
 texture = ExtResource("7_r2xsk")
 
-[node name="MarginContainer" type="MarginContainer" parent="Map"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 12
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_bottom = 12
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Map/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 60
-
-[node name="separator" type="Control" parent="Map/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Map/MarginContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Map/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 18
-alignment = 1
-
-[node name="StartGameButton" type="Button" parent="Map/MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-theme = ExtResource("3_r7f5b")
-theme_override_fonts/font = ExtResource("4_i8y6b")
-theme_override_font_sizes/font_size = 13
-text = "START GAME"
-
-[node name="OptionButton" type="Button" parent="Map/MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
-theme = ExtResource("3_r7f5b")
-theme_override_fonts/font = ExtResource("4_i8y6b")
-theme_override_font_sizes/font_size = 13
-text = "OPTIONS"
-icon_alignment = 1
-
-[node name="Exit_button" type="Button" parent="Map/MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(150, 70)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("3_r7f5b")
-theme_override_fonts/font = ExtResource("4_i8y6b")
-theme_override_font_sizes/font_size = 10
-text = "EXIT GAME"
-
-[node name="DiscordButton" type="Button" parent="Map"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -62.0
-offset_top = -42.0
-grow_horizontal = 0
-grow_vertical = 0
-theme = ExtResource("5_8fw2a")
-
-[node name="WebButton" type="Button" parent="Map"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -47.0
-offset_right = 59.0
-grow_vertical = 0
-theme = ExtResource("6_6727e")
-
-[node name="MENU-OPTIONS" parent="Map" instance=ExtResource("7_o77sj")]
-visible = false
-
 [node name="cloud5" type="Sprite2D" parent="Map"]
 position = Vector2(849, 405)
 scale = Vector2(0.193465, 0.101591)
@@ -168,8 +90,88 @@ stream = ExtResource("8_ad4hc")
 autoplay = true
 parameters/looping = true
 
-[connection signal="pressed" from="Map/MarginContainer/HBoxContainer/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
-[connection signal="pressed" from="Map/MarginContainer/HBoxContainer/VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]
-[connection signal="pressed" from="Map/MarginContainer/HBoxContainer/VBoxContainer/Exit_button" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="Map/DiscordButton" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Map/WebButton" to="." method="_on_web_button_pressed"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="separator" type="Control" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="StartGameButton" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = ExtResource("3_r7f5b")
+theme_override_fonts/font = ExtResource("4_i8y6b")
+theme_override_font_sizes/font_size = 13
+text = "START GAME"
+
+[node name="OptionButton" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+theme = ExtResource("3_r7f5b")
+theme_override_fonts/font = ExtResource("4_i8y6b")
+theme_override_font_sizes/font_size = 13
+text = "OPTIONS"
+icon_alignment = 1
+
+[node name="Exit_button" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_r7f5b")
+theme_override_fonts/font = ExtResource("4_i8y6b")
+theme_override_font_sizes/font_size = 10
+text = "EXIT GAME"
+
+[node name="DiscordButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -62.0
+offset_top = -42.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("5_8fw2a")
+
+[node name="WebButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -47.0
+offset_right = 59.0
+grow_vertical = 0
+theme = ExtResource("6_6727e")
+
+[node name="MENU-OPTIONS" parent="CanvasLayer" instance=ExtResource("7_o77sj")]
+visible = false
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Exit_button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/DiscordButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/WebButton" to="." method="_on_web_button_pressed"]
