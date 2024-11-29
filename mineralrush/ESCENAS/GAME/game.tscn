@@ -71,6 +71,7 @@ position = Vector2(671, 79)
 texture = ExtResource("3_njtcp")
 
 [node name="Sprite-0001" type="Sprite2D" parent="Map/Mas"]
+modulate = Color(1, 1, 1, 0.729412)
 z_index = 1
 position = Vector2(7, 13)
 texture = ExtResource("4_6aak0")
@@ -131,8 +132,6 @@ script = ExtResource("6_bb44e")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(701, 395)
 script = ExtResource("1_tcwm6")
-
-[node name="Map2" parent="." instance=ExtResource("2_jkggi")]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_p8kbp")

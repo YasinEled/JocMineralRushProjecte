@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=4 uid="uid://d1i8r4exxov34"]
+[gd_scene load_steps=8 format=4 uid="uid://d1i8r4exxov34"]
 
+[ext_resource type="Script" path="res://SCRIPTS/GAME/map.gd" id="1_5jebk"]
 [ext_resource type="Texture2D" uid="uid://djxuo88yk4f48" path="res://RECURSOS/pixilart-drawing.png" id="1_tcu1a"]
 [ext_resource type="Texture2D" uid="uid://dn6prnvfa45y4" path="res://RECURSOS/molinoGIF.png" id="2_dd6ps"]
 
@@ -1439,6 +1440,7 @@ texture_region_size = Vector2i(16, 32)
 sources/0 = SubResource("TileSetAtlasSource_cfm8u")
 
 [node name="Map" type="Node"]
+script = ExtResource("1_5jebk")
 
 [node name="BASE" type="TileMapLayer" parent="."]
 position = Vector2(173, 57)

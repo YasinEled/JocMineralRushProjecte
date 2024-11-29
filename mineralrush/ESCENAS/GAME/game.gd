@@ -5,9 +5,12 @@ extends Node2D
 @onready var button: Button = $Map/Mas/Button as Button
 @onready var no_jugable: TileMapLayer = $noJUGABLE
 
+signal ocultar_noJugable
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	animation_player.play("flotante_mas")
+	button.connect("pressed", Callable(self, "_on_button_pressed"))
 
 
 
@@ -19,4 +22,5 @@ func _process(delta: float) -> void:
 func _on_button_pressed() -> void:
 	mas.visible = false
 	button.visible = false
-	#no_jugable.visibility_layer = 
+	emit_signal("ocultar_noJugable")  # Emitir la señal
+	print("Señal emitida: ocultar_noJugable")
