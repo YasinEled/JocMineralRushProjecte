@@ -12,6 +12,7 @@ var urlWeb = "http://www.mineralrush.cat/index.html"
 
 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	handle_connecting_signals()

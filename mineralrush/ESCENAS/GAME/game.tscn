@@ -1,5 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://ddyec5m51y065"]
 
+
 [ext_resource type="Script" path="res://ESCENAS/GAME/game.gd" id="1_btuxk"]
 [ext_resource type="Script" path="res://SCRIPTS/GAME/camera_2d.gd" id="1_tcwm6"]
 [ext_resource type="PackedScene" uid="uid://d1i8r4exxov34" path="res://ESCENAS/GAME/map.tscn" id="2_jkggi"]
@@ -129,9 +130,12 @@ scale = Vector2(0.126389, 0.0965012)
 texture = ExtResource("7_yx5xa")
 script = ExtResource("6_bb44e")
 
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(701, 395)
 script = ExtResource("1_tcwm6")
+
+
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_p8kbp")
@@ -162,4 +166,6 @@ theme_override_font_sizes/font_size = 13
 text = "0
 "
 
+
 [connection signal="pressed" from="Map/Mas/Button" to="." method="_on_button_pressed"]
+
