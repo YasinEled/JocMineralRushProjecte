@@ -13,16 +13,12 @@ func _ready() -> void:
 
 
 
-func  _input(event: InputEvent) -> void:
-	if  Input.is_action_just_pressed("pause"):
-		pause_menu.visible = true
-		paused = true
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("pause"):
+		paused = !paused  # Alternar el estado de pausa
+		pause_menu.visible = paused  # Mostrar u ocultar el menú
 	
 	
-		
-		
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -39,3 +35,9 @@ func _on_quit_pressed() -> void:
 func _on_options_pressed() -> void:
 	menu_options.visible = true
 	pause_menu.visible = false
+	
+	
+	
+func _on_exit_options_menu() -> void:
+	menu_options.visible = false
+	pause_menu.visible = true

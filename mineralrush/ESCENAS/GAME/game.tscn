@@ -102,8 +102,8 @@ visible = false
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("13_5j2w8")]
 visible = false
-offset_left = -42.0
-offset_top = -28.0
-offset_right = -42.0
-offset_bottom = -28.0
+offset_left = -102.0
+offset_top = -92.0
+offset_right = -102.0
+offset_bottom = -92.0
 size_flags_vertical = 4

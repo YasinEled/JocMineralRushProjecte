@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://8rujt5h2n6bx"]
+[gd_scene load_steps=4 format=3 uid="uid://8rujt5h2n6bx"]
 
 [ext_resource type="Script" path="res://SCRIPTS/OPTIONS/pause_menu.gd" id="1_ci1eg"]
+[ext_resource type="FontFile" uid="uid://bfauo7wkc6aib" path="res://RECURSOS/Pixeled.ttf" id="2_036b0"]
+[ext_resource type="Theme" uid="uid://b26agqovtdb31" path="res://RECURSOS/menu/MenuButtons.tres" id="2_65spn"]
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -22,17 +24,30 @@ offset_bottom = 40.0
 layout_mode = 2
 
 [node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
+theme = ExtResource("2_65spn")
+theme_override_fonts/font = ExtResource("2_036b0")
+theme_override_font_sizes/font_size = 13
 text = "Resume"
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
+theme = ExtResource("2_65spn")
+theme_override_fonts/font = ExtResource("2_036b0")
+theme_override_font_sizes/font_size = 13
 text = "Options"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
+theme = ExtResource("2_65spn")
+theme_override_fonts/font = ExtResource("2_036b0")
+theme_override_font_sizes/font_size = 13
 text = "Quit"
 
+[connection signal="exit_options_menu" from="." to="." method="_on_exit_options_menu"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

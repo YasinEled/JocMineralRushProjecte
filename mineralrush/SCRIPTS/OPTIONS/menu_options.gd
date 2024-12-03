@@ -16,3 +16,4 @@ func _on_exit_button_pressed() -> void:
 	menu_options.visible = false
 	exit_options_menu.emit()
 	set_process(false)
+	
