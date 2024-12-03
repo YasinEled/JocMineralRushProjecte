@@ -1,4 +1,6 @@
+
 [gd_scene load_steps=18 format=3 uid="uid://ddyec5m51y065"]
+
 
 [ext_resource type="Script" path="res://ESCENAS/GAME/game.gd" id="1_btuxk"]
 [ext_resource type="Script" path="res://SCRIPTS/GAME/camera_2d.gd" id="1_tcwm6"]
@@ -131,11 +133,34 @@ script = ExtResource("6_bb44e")
 position = Vector2(701, 395)
 script = ExtResource("1_tcwm6")
 
+[node name="Map2" parent="." instance=ExtResource("2_jkggi")]
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_p8kbp")
 autoplay = true
 parameters/looping = true
 
-[node name="InterfazGame" parent="." instance=ExtResource("12_55ych")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+auto_translate_mode = 1
 
-[connection signal="pressed" from="Map/newTerreno1/butMas" to="Map" method="_on_but_mas_pressed"]
+[node name="ZoneVisible" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(1030.01, 68.2499)
+scale = Vector2(0.412091, 0.424797)
+texture = ExtResource("10_1ug4k")
+
+[node name="Stone" type="Sprite2D" parent="CanvasLayer"]
+z_index = 1
+position = Vector2(978.009, 67.2501)
+scale = Vector2(1.55435, 1.59375)
+texture = ExtResource("3_inw0p")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 1008.0
+offset_top = 36.0
+offset_right = 1103.0
+offset_bottom = 92.0
+theme_override_fonts/font = ExtResource("12_n4eau")
+theme_override_font_sizes/font_size = 20
+text = "0
+"
+

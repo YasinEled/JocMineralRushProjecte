@@ -1,4 +1,5 @@
-[gd_scene load_steps=17 format=3 uid="uid://dnsj81jirigye"]
+
+[gd_scene load_steps=19 format=3 uid="uid://dnsj81jirigye"]
 
 [ext_resource type="Script" path="res://SCRIPTS/OPTIONS/menu.gd" id="1_gq77o"]
 [ext_resource type="PackedScene" uid="uid://d1i8r4exxov34" path="res://ESCENAS/GAME/map.tscn" id="2_8o7o1"]
@@ -13,9 +14,51 @@
 [ext_resource type="PackedScene" uid="uid://be385umlkleg7" path="res://ESCENAS/OPTIONS/GLOBAL/menu_options.tscn" id="7_o77sj"]
 [ext_resource type="Texture2D" uid="uid://7y0ou858k5o5" path="res://RECURSOS/menu/Clouds/nube4.png" id="7_r2xsk"]
 [ext_resource type="AudioStream" uid="uid://bc1wml3wgu4wl" path="res://RECURSOS/menu/MenuTheme.mp3" id="8_ad4hc"]
+
+[ext_resource type="Texture2D" uid="uid://c3v4rcl8t8jbv" path="res://RECURSOS/menu/Clouds/BigCloud.png" id="8_hu5ou"]
+[ext_resource type="Script" path="res://ESCENAS/OPTIONS/GLOBAL/bigcloud.gd" id="9_3lc82"]
+
+[sub_resource type="Animation" id="Animation_m5qjm"]
+resource_name = "nuves"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-620, 330), Vector2(367, 326)]
+}
+
+[sub_resource type="Animation" id="Animation_rwu24"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-620, 330)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hoc7r"]
+_data = {
+"RESET": SubResource("Animation_rwu24"),
+"nuves": SubResource("Animation_m5qjm")
+}
+
 [ext_resource type="Script" path="res://SCRIPTS/Button/start_game_button.gd" id="11_i3rtm"]
 [ext_resource type="Script" path="res://SCRIPTS/Button/option_button.gd" id="12_e3i1q"]
 [ext_resource type="Script" path="res://SCRIPTS/Button/exit_button.gd" id="13_3lwty"]
+
 
 [node name="MENU" type="Control"]
 layout_mode = 3
@@ -81,6 +124,41 @@ position = Vector2(849, 405)
 scale = Vector2(0.193465, 0.101591)
 texture = ExtResource("6_ro1j2")
 script = ExtResource("4_v0m5v")
+
+[node name="shadowCloud3" type="Sprite2D" parent="Map/cloud5"]
+modulate = Color(0, 0, 0, 0.172549)
+position = Vector2(-139.56, 2116.32)
+scale = Vector2(0.551484, 0.533389)
+texture = ExtResource("6_ro1j2")
+
+[node name="BigCloudLeft" type="Sprite2D" parent="Map"]
+position = Vector2(-620, 330)
+scale = Vector2(0.797917, 0.619907)
+texture = ExtResource("8_hu5ou")
+flip_h = true
+script = ExtResource("9_3lc82")
+
+[node name="animacionNuve" type="AnimationPlayer" parent="Map/BigCloudLeft"]
+libraries = {
+"": SubResource("AnimationLibrary_hoc7r")
+}
+
+[node name="BigCloudRight" type="Sprite2D" parent="Map"]
+position = Vector2(1549, 327)
+scale = Vector2(0.735185, 0.551852)
+texture = ExtResource("8_hu5ou")
+
+[node name="MarginContainer" type="MarginContainer" parent="Map"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
 
 [node name="shadowCloud3" type="Sprite2D" parent="Map/cloud5"]
 modulate = Color(0, 0, 0, 0.172549)
@@ -176,6 +254,7 @@ theme = ExtResource("6_6727e")
 
 [node name="MENU-OPTIONS" parent="CanvasLayer" instance=ExtResource("7_o77sj")]
 visible = false
+
 
 [connection signal="mouse_entered" from="CanvasLayer/canvasButton/StartGameButton" to="CanvasLayer/canvasButton/StartGameButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/canvasButton/StartGameButton" to="CanvasLayer/canvasButton/StartGameButton" method="_on_mouse_exited"]
