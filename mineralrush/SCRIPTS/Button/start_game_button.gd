@@ -1,0 +1,14 @@
+extends Button
+@onready var start_game_button: Button = $"."
+
+
+var originalScale
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	originalScale = start_game_button.scale
+func _on_mouse_entered() -> void:
+	start_game_button.scale = scale * 1.1
+
+
+func _on_mouse_exited() -> void:
+	start_game_button.scale = originalScale

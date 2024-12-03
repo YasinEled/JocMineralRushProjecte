@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dnsj81jirigye"]
+[gd_scene load_steps=17 format=3 uid="uid://dnsj81jirigye"]
 
 [ext_resource type="Script" path="res://SCRIPTS/OPTIONS/menu.gd" id="1_gq77o"]
 [ext_resource type="PackedScene" uid="uid://d1i8r4exxov34" path="res://ESCENAS/GAME/map.tscn" id="2_8o7o1"]
@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://be385umlkleg7" path="res://ESCENAS/OPTIONS/GLOBAL/menu_options.tscn" id="7_o77sj"]
 [ext_resource type="Texture2D" uid="uid://7y0ou858k5o5" path="res://RECURSOS/menu/Clouds/nube4.png" id="7_r2xsk"]
 [ext_resource type="AudioStream" uid="uid://bc1wml3wgu4wl" path="res://RECURSOS/menu/MenuTheme.mp3" id="8_ad4hc"]
+[ext_resource type="Script" path="res://SCRIPTS/Button/start_game_button.gd" id="11_i3rtm"]
+[ext_resource type="Script" path="res://SCRIPTS/Button/option_button.gd" id="12_e3i1q"]
+[ext_resource type="Script" path="res://SCRIPTS/Button/exit_button.gd" id="13_3lwty"]
 
 [node name="MENU" type="Control"]
 layout_mode = 3
@@ -92,59 +95,63 @@ parameters/looping = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="canvasButton" type="CanvasLayer" parent="CanvasLayer"]
+
+[node name="StartGameButton" type="Button" parent="CanvasLayer/canvasButton"]
+custom_minimum_size = Vector2(200, 70)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -107.0
+offset_right = 100.0
+offset_bottom = -37.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 12
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_bottom = 12
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 60
-
-[node name="separator" type="Control" parent="CanvasLayer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 18
-alignment = 1
-
-[node name="StartGameButton" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
+pivot_offset = Vector2(100, 35)
 theme = ExtResource("3_r7f5b")
 theme_override_fonts/font = ExtResource("4_i8y6b")
 theme_override_font_sizes/font_size = 13
 text = "START GAME"
+script = ExtResource("11_i3rtm")
 
-[node name="OptionButton" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="OptionButton" type="Button" parent="CanvasLayer/canvasButton"]
 custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -35.0
+offset_right = 100.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(100, 38)
 theme = ExtResource("3_r7f5b")
 theme_override_fonts/font = ExtResource("4_i8y6b")
 theme_override_font_sizes/font_size = 13
 text = "OPTIONS"
 icon_alignment = 1
+script = ExtResource("12_e3i1q")
 
-[node name="Exit_button" type="Button" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Exit_button" type="Button" parent="CanvasLayer/canvasButton"]
 custom_minimum_size = Vector2(150, 70)
-layout_mode = 2
+offset_left = 501.0
+offset_top = 377.0
+offset_right = 651.0
+offset_bottom = 447.0
+pivot_offset = Vector2(76, 37)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("3_r7f5b")
 theme_override_fonts/font = ExtResource("4_i8y6b")
 theme_override_font_sizes/font_size = 10
 text = "EXIT GAME"
+script = ExtResource("13_3lwty")
 
 [node name="DiscordButton" type="Button" parent="CanvasLayer"]
 anchors_preset = 3
@@ -170,8 +177,14 @@ theme = ExtResource("6_6727e")
 [node name="MENU-OPTIONS" parent="CanvasLayer" instance=ExtResource("7_o77sj")]
 visible = false
 
-[connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/Exit_button" to="." method="_on_exit_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/canvasButton/StartGameButton" to="CanvasLayer/canvasButton/StartGameButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/canvasButton/StartGameButton" to="CanvasLayer/canvasButton/StartGameButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/canvasButton/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/canvasButton/OptionButton" to="CanvasLayer/canvasButton/OptionButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/canvasButton/OptionButton" to="CanvasLayer/canvasButton/OptionButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/canvasButton/OptionButton" to="." method="_on_option_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/canvasButton/Exit_button" to="CanvasLayer/canvasButton/Exit_button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/canvasButton/Exit_button" to="CanvasLayer/canvasButton/Exit_button" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/canvasButton/Exit_button" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/DiscordButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/WebButton" to="." method="_on_web_button_pressed"]
