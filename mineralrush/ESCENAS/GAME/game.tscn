@@ -1,8 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://ddyec5m51y065"]
+
+[gd_scene load_steps=18 format=3 uid="uid://ddyec5m51y065"]
+
+[ext_resource type="Script" path="res://ESCENAS/GAME/game.gd" id="1_btuxk"]
 
 [ext_resource type="Script" path="res://SCRIPTS/GAME/camera_2d.gd" id="1_tcwm6"]
 [ext_resource type="PackedScene" uid="uid://d1i8r4exxov34" path="res://ESCENAS/GAME/map.tscn" id="2_jkggi"]
-[ext_resource type="Texture2D" uid="uid://qynhxv6v63ar" path="res://RECURSOS/GameRes/stone.png" id="3_inw0p"]
+[ext_resource type="Texture2D" uid="uid://dunjw74b531ae" path="res://RECURSOS/mas.png" id="3_njtcp"]
+[ext_resource type="Texture2D" uid="uid://dbt8dpvllmkkt" path="res://RECURSOS/Sprite-0001.png" id="4_6aak0"]
 [ext_resource type="AudioStream" uid="uid://ba5diqj5xx3ln" path="res://RECURSOS/GameRes/GameMusic.mp3" id="4_p8kbp"]
 [ext_resource type="Texture2D" uid="uid://bpplifqump1em" path="res://RECURSOS/menu/Clouds/nube2.png" id="5_djcwc"]
 [ext_resource type="Script" path="res://SCRIPTS/GAME/cloud.gd" id="6_bb44e"]
@@ -10,44 +14,124 @@
 [ext_resource type="PackedScene" uid="uid://be385umlkleg7" path="res://ESCENAS/OPTIONS/GLOBAL/menu_options.tscn" id="8_3yniu"]
 [ext_resource type="Texture2D" uid="uid://b5vkne8w36no1" path="res://RECURSOS/menu/Clouds/nube3.png" id="8_va23s"]
 [ext_resource type="Texture2D" uid="uid://7y0ou858k5o5" path="res://RECURSOS/menu/Clouds/nube4.png" id="9_mf8q5"]
-[ext_resource type="Texture2D" uid="uid://djwvho1m6a0av" path="res://RECURSOS/menu/Pergamino.png" id="10_1ug4k"]
-[ext_resource type="FontFile" uid="uid://bfauo7wkc6aib" path="res://RECURSOS/Pixeled.ttf" id="12_n4eau"]
-[ext_resource type="PackedScene" uid="uid://8rujt5h2n6bx" path="res://ESCENAS/OPTIONS/GLOBAL/pause_menu.tscn" id="13_5j2w8"]
 
-[sub_resource type="GDScript" id="GDScript_5ilot"]
-script/source = "extends Node2D
+[ext_resource type="PackedScene" uid="uid://b0xoojj3afxtu" path="res://SCRIPTS/INTERFAZGAME/interfaz_game.tscn" id="12_55ych"]
 
+[sub_resource type="Animation" id="Animation_n1mxf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+[sub_resource type="Animation" id="Animation_o7puu"]
+resource_name = "flotante_mas"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.637281, 0.707107),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1)]
+}
 
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f0wxc"]
+_data = {
+"RESET": SubResource("Animation_n1mxf"),
+"flotante_mas": SubResource("Animation_o7puu")
+}
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_805gs"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3586"]
+draw_center = false
+
 
 [node name="Node2D" type="Node2D"]
 script = SubResource("GDScript_5ilot")
 
 [node name="Map" parent="." instance=ExtResource("2_jkggi")]
 
+[node name="newTerreno1" type="Sprite2D" parent="Map"]
+modulate = Color(1, 1, 1, 0.776471)
+z_index = 1
+position = Vector2(671, 79)
+texture = ExtResource("3_njtcp")
+
+[node name="maas" type="Sprite2D" parent="Map/newTerreno1"]
+modulate = Color(1, 1, 1, 0.729412)
+z_index = 1
+position = Vector2(7, 13)
+texture = ExtResource("4_6aak0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Map/newTerreno1"]
+libraries = {
+"": SubResource("AnimationLibrary_f0wxc")
+}
+
+[node name="butMas" type="Button" parent="Map/newTerreno1"]
+offset_left = -79.0
+offset_top = -49.0
+offset_right = 87.0
+offset_bottom = 71.0
+theme_override_styles/pressed = SubResource("StyleBoxFlat_805gs")
+theme_override_styles/normal = SubResource("StyleBoxFlat_i3586")
+
 [node name="shadowCloud2" type="Sprite2D" parent="Map"]
 modulate = Color(0, 0, 0, 0.184314)
 z_index = 1
-position = Vector2(-56, 377)
-scale = Vector2(0.177322, 0.114534)
+position = Vector2(-303, 643.001)
+scale = Vector2(0.111058, 0.0692983)
 texture = ExtResource("5_djcwc")
+script = ExtResource("6_bb44e")
+
+[node name="shadowCloud4" type="Sprite2D" parent="Map"]
+modulate = Color(0, 0, 0, 0.172549)
+z_index = 1
+position = Vector2(-916, 280.999)
+scale = Vector2(0.106693, 0.0541875)
+texture = ExtResource("8_va23s")
+script = ExtResource("6_bb44e")
+
+[node name="shadowCloud5" type="Sprite2D" parent="Map"]
+modulate = Color(0, 0, 0, 0.247059)
+z_index = 1
+position = Vector2(830, 322)
+scale = Vector2(0.0809918, 0.0425299)
+texture = ExtResource("9_mf8q5")
+script = ExtResource("6_bb44e")
+
+[node name="shadowCloud3" type="Sprite2D" parent="Map"]
+modulate = Color(0, 0, 0, 0.172549)
+z_index = 1
+position = Vector2(822, 619.999)
+scale = Vector2(0.106693, 0.0541875)
+texture = ExtResource("8_va23s")
 script = ExtResource("6_bb44e")
 
 [node name="shadowCloud1" type="Sprite2D" parent="Map"]
 modulate = Color(0, 0, 0, 0.298039)
 z_index = 1
-position = Vector2(724, 521)
-scale = Vector2(0.207429, 0.15303)
+position = Vector2(98.5, 440.74)
+scale = Vector2(0.126389, 0.0965012)
 texture = ExtResource("7_yx5xa")
 script = ExtResource("6_bb44e")
+
 
 [node name="shadowCloud3" type="Sprite2D" parent="Map"]
 modulate = Color(0, 0, 0, 0.172549)
@@ -64,6 +148,7 @@ scale = Vector2(0.131511, 0.0889187)
 texture = ExtResource("9_mf8q5")
 script = ExtResource("6_bb44e")
 
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(701, 395)
 script = ExtResource("1_tcwm6")
@@ -73,29 +158,7 @@ stream = ExtResource("4_p8kbp")
 autoplay = true
 parameters/looping = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-auto_translate_mode = 1
-
-[node name="ZoneVisible" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(1030.01, 68.2499)
-scale = Vector2(0.412091, 0.424797)
-texture = ExtResource("10_1ug4k")
-
-[node name="Stone" type="Sprite2D" parent="CanvasLayer"]
-z_index = 1
-position = Vector2(978.009, 67.2501)
-scale = Vector2(1.55435, 1.59375)
-texture = ExtResource("3_inw0p")
-
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 1008.0
-offset_top = 36.0
-offset_right = 1103.0
-offset_bottom = 92.0
-theme_override_fonts/font = ExtResource("12_n4eau")
-theme_override_font_sizes/font_size = 20
-text = "0
-"
+[node name="InterfazGame" parent="." instance=ExtResource("12_55ych")]
 
 [node name="MENU-OPTIONS" parent="CanvasLayer" instance=ExtResource("8_3yniu")]
 visible = false
@@ -107,3 +170,6 @@ offset_top = -92.0
 offset_right = -102.0
 offset_bottom = -92.0
 size_flags_vertical = 4
+
+[connection signal="pressed" from="Map/newTerreno1/butMas" to="Map" method="_on_but_mas_pressed"]
+
