@@ -1,18 +1,18 @@
 extends Control
 
+var speed: float = 50
+var screen_height: float = 0
 
 @onready var menu_options: OptionsMenu = $"Map/MENU-OPTIONS" as OptionsMenu
+@onready var animacion_nuve: AnimationPlayer = $Map/BigCloudLeft/animacionNuve
 
 @onready var exit_button: Button = $Map/MarginContainer/HBoxContainer/VBoxContainer/Exit_button as Button
 @onready var option_button: Button = $Map/MarginContainer/HBoxContainer/VBoxContainer/OptionButton as Button
 @onready var margin_container: MarginContainer = $Map/MarginContainer as MarginContainer
 
 
-
 var urlDiscord = "https://discord.gg/4U57ehVFQz"
 var urlWeb = "http://www.mineralrush.cat/index.html"
-
-
 
 
 # Called when the node enters the scene tree for the first time.
@@ -51,4 +51,6 @@ func on_exit_option_menu() -> void:
 
 
 func _on_start_game_button_pressed() -> void:
+	animacion_nuve.play("nuves") #Yasin no sabe escribir nube
+	await animacion_nuve.animation_finished
 	get_tree().change_scene_to_file("res://ESCENAS/GAME/game.tscn")

@@ -1,4 +1,3 @@
-
 [gd_scene load_steps=13 format=3 uid="uid://ddyec5m51y065"]
 
 [ext_resource type="Script" path="res://ESCENAS/GAME/game.gd" id="1_btuxk"]
@@ -50,11 +49,9 @@ scale = Vector2(0.131511, 0.0889187)
 texture = ExtResource("9_mf8q5")
 script = ExtResource("6_bb44e")
 
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(701, 395)
 script = ExtResource("1_tcwm6")
-
 
 [node name="Map2" parent="." instance=ExtResource("2_jkggi")]
 
@@ -86,4 +83,3 @@ theme_override_fonts/font = ExtResource("12_n4eau")
 theme_override_font_sizes/font_size = 20
 text = "0
 "
-
