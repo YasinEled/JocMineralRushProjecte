@@ -1,9 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://ddyec5m51y065"]
+[gd_scene load_steps=18 format=3 uid="uid://ddyec5m51y065"]
 
 [ext_resource type="Script" path="res://ESCENAS/GAME/game.gd" id="1_btuxk"]
 [ext_resource type="Script" path="res://SCRIPTS/GAME/camera_2d.gd" id="1_tcwm6"]
 [ext_resource type="PackedScene" uid="uid://d1i8r4exxov34" path="res://ESCENAS/GAME/map.tscn" id="2_jkggi"]
-[ext_resource type="Texture2D" uid="uid://qynhxv6v63ar" path="res://RECURSOS/GameRes/stone.png" id="3_inw0p"]
 [ext_resource type="Texture2D" uid="uid://dunjw74b531ae" path="res://RECURSOS/mas.png" id="3_njtcp"]
 [ext_resource type="Texture2D" uid="uid://dbt8dpvllmkkt" path="res://RECURSOS/Sprite-0001.png" id="4_6aak0"]
 [ext_resource type="AudioStream" uid="uid://ba5diqj5xx3ln" path="res://RECURSOS/GameRes/GameMusic.mp3" id="4_p8kbp"]
@@ -12,8 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://2s17am4mgxl2" path="res://RECURSOS/menu/Clouds/cloud1.png" id="7_yx5xa"]
 [ext_resource type="Texture2D" uid="uid://b5vkne8w36no1" path="res://RECURSOS/menu/Clouds/nube3.png" id="8_va23s"]
 [ext_resource type="Texture2D" uid="uid://7y0ou858k5o5" path="res://RECURSOS/menu/Clouds/nube4.png" id="9_mf8q5"]
-[ext_resource type="Texture2D" uid="uid://djwvho1m6a0av" path="res://RECURSOS/menu/Pergamino.png" id="10_1ug4k"]
-[ext_resource type="FontFile" uid="uid://bfauo7wkc6aib" path="res://RECURSOS/Pixeled.ttf" id="12_n4eau"]
+[ext_resource type="PackedScene" uid="uid://b0xoojj3afxtu" path="res://SCRIPTS/INTERFAZGAME/interfaz_game.tscn" id="12_55ych"]
 
 [sub_resource type="Animation" id="Animation_n1mxf"]
 length = 0.001
@@ -138,28 +136,6 @@ stream = ExtResource("4_p8kbp")
 autoplay = true
 parameters/looping = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-auto_translate_mode = 1
-
-[node name="ZoneVisible" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(1005, 63)
-scale = Vector2(0.412091, 0.424797)
-texture = ExtResource("10_1ug4k")
-
-[node name="Stone" type="Sprite2D" parent="CanvasLayer/ZoneVisible"]
-z_index = 1
-position = Vector2(-126.188, -2.35361)
-scale = Vector2(3.77186, 3.75179)
-texture = ExtResource("3_inw0p")
-
-[node name="Label" type="Label" parent="CanvasLayer/ZoneVisible/Stone"]
-offset_left = 19.0
-offset_top = -20.0
-offset_right = 85.0
-offset_bottom = 17.0
-theme_override_fonts/font = ExtResource("12_n4eau")
-theme_override_font_sizes/font_size = 13
-text = "0
-"
+[node name="InterfazGame" parent="." instance=ExtResource("12_55ych")]
 
 [connection signal="pressed" from="Map/newTerreno1/butMas" to="Map" method="_on_but_mas_pressed"]
