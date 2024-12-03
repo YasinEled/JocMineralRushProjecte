@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=19 format=3 uid="uid://dnsj81jirigye"]
 
 [ext_resource type="Script" path="res://SCRIPTS/OPTIONS/menu.gd" id="1_gq77o"]
@@ -13,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://be385umlkleg7" path="res://ESCENAS/OPTIONS/GLOBAL/menu_options.tscn" id="7_o77sj"]
 [ext_resource type="Texture2D" uid="uid://7y0ou858k5o5" path="res://RECURSOS/menu/Clouds/nube4.png" id="7_r2xsk"]
 [ext_resource type="AudioStream" uid="uid://bc1wml3wgu4wl" path="res://RECURSOS/menu/MenuTheme.mp3" id="8_ad4hc"]
+
 [ext_resource type="Texture2D" uid="uid://c3v4rcl8t8jbv" path="res://RECURSOS/menu/Clouds/BigCloud.png" id="8_hu5ou"]
 [ext_resource type="Script" path="res://ESCENAS/OPTIONS/GLOBAL/bigcloud.gd" id="9_3lc82"]
 
@@ -52,6 +54,11 @@ _data = {
 "RESET": SubResource("Animation_rwu24"),
 "nuves": SubResource("Animation_m5qjm")
 }
+
+[ext_resource type="Script" path="res://SCRIPTS/Button/start_game_button.gd" id="11_i3rtm"]
+[ext_resource type="Script" path="res://SCRIPTS/Button/option_button.gd" id="12_e3i1q"]
+[ext_resource type="Script" path="res://SCRIPTS/Button/exit_button.gd" id="13_3lwty"]
+
 
 [node name="MENU" type="Control"]
 layout_mode = 3
@@ -152,50 +159,79 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Map/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 60
 
-[node name="separator" type="Control" parent="Map/MarginContainer/VBoxContainer"]
-layout_mode = 2
+[node name="shadowCloud3" type="Sprite2D" parent="Map/cloud5"]
+modulate = Color(0, 0, 0, 0.172549)
+position = Vector2(-139.56, 2116.32)
+scale = Vector2(0.551484, 0.533389)
+texture = ExtResource("6_ro1j2")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Map/MarginContainer"]
-layout_mode = 2
-alignment = 1
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_ad4hc")
+autoplay = true
+parameters/looping = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Map/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 18
-alignment = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="StartGameButton" type="Button" parent="Map/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="canvasButton" type="CanvasLayer" parent="CanvasLayer"]
+
+[node name="StartGameButton" type="Button" parent="CanvasLayer/canvasButton"]
 custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -107.0
+offset_right = 100.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(100, 35)
 theme = ExtResource("3_r7f5b")
 theme_override_fonts/font = ExtResource("4_i8y6b")
 theme_override_font_sizes/font_size = 13
 text = "START GAME"
+script = ExtResource("11_i3rtm")
 
-[node name="OptionButton" type="Button" parent="Map/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="OptionButton" type="Button" parent="CanvasLayer/canvasButton"]
 custom_minimum_size = Vector2(200, 70)
-layout_mode = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -35.0
+offset_right = 100.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(100, 38)
 theme = ExtResource("3_r7f5b")
 theme_override_fonts/font = ExtResource("4_i8y6b")
 theme_override_font_sizes/font_size = 13
 text = "OPTIONS"
 icon_alignment = 1
+script = ExtResource("12_e3i1q")
 
-[node name="Exit_button" type="Button" parent="Map/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Exit_button" type="Button" parent="CanvasLayer/canvasButton"]
 custom_minimum_size = Vector2(150, 70)
-layout_mode = 2
+offset_left = 501.0
+offset_top = 377.0
+offset_right = 651.0
+offset_bottom = 447.0
+pivot_offset = Vector2(76, 37)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("3_r7f5b")
 theme_override_fonts/font = ExtResource("4_i8y6b")
 theme_override_font_sizes/font_size = 10
 text = "EXIT GAME"
+script = ExtResource("13_3lwty")
 
-[node name="DiscordButton" type="Button" parent="Map"]
+[node name="DiscordButton" type="Button" parent="CanvasLayer"]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -207,7 +243,7 @@ grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("5_8fw2a")
 
-[node name="WebButton" type="Button" parent="Map"]
+[node name="WebButton" type="Button" parent="CanvasLayer"]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -216,17 +252,18 @@ offset_right = 59.0
 grow_vertical = 0
 theme = ExtResource("6_6727e")
 
-[node name="MENU-OPTIONS" parent="Map" instance=ExtResource("7_o77sj")]
+[node name="MENU-OPTIONS" parent="CanvasLayer" instance=ExtResource("7_o77sj")]
 visible = false
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_ad4hc")
-autoplay = true
-parameters/looping = true
 
-[connection signal="pressed" from="Map/MarginContainer/HBoxContainer/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
-[connection signal="pressed" from="Map/MarginContainer/HBoxContainer/VBoxContainer/StartGameButton" to="Map/BigCloudLeft" method="_on_start_game_button_pressed"]
-[connection signal="pressed" from="Map/MarginContainer/HBoxContainer/VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]
-[connection signal="pressed" from="Map/MarginContainer/HBoxContainer/VBoxContainer/Exit_button" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="Map/DiscordButton" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Map/WebButton" to="." method="_on_web_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/canvasButton/StartGameButton" to="CanvasLayer/canvasButton/StartGameButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/canvasButton/StartGameButton" to="CanvasLayer/canvasButton/StartGameButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/canvasButton/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/canvasButton/OptionButton" to="CanvasLayer/canvasButton/OptionButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/canvasButton/OptionButton" to="CanvasLayer/canvasButton/OptionButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/canvasButton/OptionButton" to="." method="_on_option_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/canvasButton/Exit_button" to="CanvasLayer/canvasButton/Exit_button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/canvasButton/Exit_button" to="CanvasLayer/canvasButton/Exit_button" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/canvasButton/Exit_button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/DiscordButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/WebButton" to="." method="_on_web_button_pressed"]

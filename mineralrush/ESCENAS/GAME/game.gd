@@ -1,11 +1,11 @@
 extends Node2D
 
+@onready var animation_player: AnimationPlayer = $Map/newTerreno1/AnimationPlayer
+@onready var mas: Sprite2D = $Map/newTerreno1
+@onready var butMas: Button = $Map/newTerreno1/butMas as Button
+@onready var map: Node = $Map as Node
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	animation_player.play("flotante_mas")
