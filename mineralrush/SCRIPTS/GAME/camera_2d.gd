@@ -1,4 +1,7 @@
 extends Camera2D
+@onready var pause_menu: Control = $CanvasLayer2/PauseMenu
+@onready var menu_options: OptionsMenu = $"CanvasLayer2/MENU-OPTIONS"
+
 
 # Velocidad de movimiento de la cámara
 @export var speed: float = 200.0
@@ -33,38 +36,40 @@ var target_zoom: float = zoom_levels[current_zoom_index]["zoom"]
 var zoom_speed: float = 5.0  # Velocidad de la interpolación
 
 func _ready() -> void:
-	# Inicializa la posición de la cámara cuando el juego empieza
-	last_mouse_position = get_global_mouse_position()
-	# Ajusta el zoom inicial y los límites
-	apply_zoom_level(current_zoom_index)
+	if (pause_menu.visible == false && menu_options.visible == false):
+		# Inicializa la posición de la cámara cuando el juego empieza
+		last_mouse_position = get_global_mouse_position()
+		# Ajusta el zoom inicial y los límites
+		apply_zoom_level(current_zoom_index)
 
 func _process(delta: float) -> void:
-	# Interpolación suave del zoom
-	zoom.x = lerp(zoom.x, target_zoom, zoom_speed * delta)
-	zoom.y = lerp(zoom.y, target_zoom, zoom_speed * delta)
+	if (pause_menu.visible == false && menu_options.visible == false):
+		# Interpolación suave del zoom
+		zoom.x = lerp(zoom.x, target_zoom, zoom_speed * delta)
+		zoom.y = lerp(zoom.y, target_zoom, zoom_speed * delta)
 
-	# Detecta las teclas presionadas para mover la cámara
-	var movement = Vector2.ZERO  # Vector inicial para el movimiento
+		# Detecta las teclas presionadas para mover la cámara
+		var movement = Vector2.ZERO  # Vector inicial para el movimiento
 
-	if Input.is_action_pressed("move_up"):
-		movement.y -= 1
-	if Input.is_action_pressed("move_down"):
-		movement.y += 1
-	if Input.is_action_pressed("move_left"):
-		movement.x -= 1
-	if Input.is_action_pressed("move_right"):
-		movement.x += 1
+		if Input.is_action_pressed("move_up"):
+			movement.y -= 1
+		if Input.is_action_pressed("move_down"):
+			movement.y += 1
+		if Input.is_action_pressed("move_left"):
+			movement.x -= 1
+		if Input.is_action_pressed("move_right"):
+			movement.x += 1
 
-	# Normaliza el vector para movimiento uniforme
-	if movement != Vector2.ZERO:
-		movement = movement.normalized()
+		# Normaliza el vector para movimiento uniforme
+		if movement != Vector2.ZERO:
+			movement = movement.normalized()
 
-	# Aplica el movimiento
-	global_position += movement * speed * delta
+		# Aplica el movimiento
+		global_position += movement * speed * delta
 
-	# Restringe la posición dentro de los límites
-	global_position.x = clamp(global_position.x, limit_x_min, limit_x_max)
-	global_position.y = clamp(global_position.y, limit_y_min, limit_y_max)
+		# Restringe la posición dentro de los límites
+		global_position.x = clamp(global_position.x, limit_x_min, limit_x_max)
+		global_position.y = clamp(global_position.y, limit_y_min, limit_y_max)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
