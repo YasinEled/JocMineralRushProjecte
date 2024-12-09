@@ -7,7 +7,8 @@ var piedras = 0
 
 # Se ejecuta cuando la escena se carga
 func _ready() -> void:
-	mineral.text += piedras
+	pass
+	#mineral.text += piedras
 
 func _on_but_stone_add_pressed() -> void:
 	stone_add.visible = false

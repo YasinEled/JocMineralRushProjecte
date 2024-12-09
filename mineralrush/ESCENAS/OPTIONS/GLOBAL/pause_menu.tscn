@@ -61,6 +61,7 @@ layout_mode = 2
 theme = ExtResource("3_6lica")
 theme_override_font_sizes/font_size = 0
 theme_override_styles/hover = SubResource("StyleBoxTexture_shfd3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxTexture_mhc38")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_mhc38")
 theme_override_styles/normal = SubResource("StyleBoxTexture_mu631")
 text = "Resume
