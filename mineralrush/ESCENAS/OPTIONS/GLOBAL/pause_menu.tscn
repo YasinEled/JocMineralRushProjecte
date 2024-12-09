@@ -1,6 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3f751h3xea56"]
+[gd_scene load_steps=7 format=3 uid="uid://c3f751h3xea56"]
 
 [ext_resource type="Script" path="res://SCRIPTS/OPTIONS/pause_menu.gd" id="1_ci1eg"]
+[ext_resource type="Texture2D" uid="uid://djwvho1m6a0av" path="res://RECURSOS/menu/Pergamino.png" id="2_wej0d"]
+[ext_resource type="Theme" uid="uid://b26agqovtdb31" path="res://RECURSOS/menu/MenuButtons.tres" id="3_6lica"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_shfd3"]
+texture = ExtResource("2_wej0d")
+expand_margin_left = 25.0
+expand_margin_top = 20.0
+expand_margin_right = 25.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mhc38"]
+texture = ExtResource("2_wej0d")
+expand_margin_left = 20.0
+expand_margin_top = 15.0
+expand_margin_right = 20.0
+expand_margin_bottom = 15.0
+modulate_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mu631"]
+texture = ExtResource("2_wej0d")
+expand_margin_left = 20.0
+expand_margin_top = 15.0
+expand_margin_right = 20.0
+expand_margin_bottom = 15.0
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -14,25 +38,52 @@ grow_vertical = 2
 script = ExtResource("1_ci1eg")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -69.0
+offset_right = 48.0
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
 
 [node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Resume"
-
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Quit"
+theme = ExtResource("3_6lica")
+theme_override_font_sizes/font_size = 0
+theme_override_styles/hover = SubResource("StyleBoxTexture_shfd3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mhc38")
+theme_override_styles/normal = SubResource("StyleBoxTexture_mu631")
+text = "Resume
+"
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_6lica")
+theme_override_font_sizes/font_size = 0
+theme_override_styles/hover = SubResource("StyleBoxTexture_shfd3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mhc38")
+theme_override_styles/normal = SubResource("StyleBoxTexture_mu631")
 text = "Options"
 
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_6lica")
+theme_override_font_sizes/font_size = 0
+theme_override_styles/hover = SubResource("StyleBoxTexture_shfd3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mhc38")
+theme_override_styles/normal = SubResource("StyleBoxTexture_mu631")
+text = "Quit"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
