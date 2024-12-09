@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b5vkne8w36no1" path="res://RECURSOS/menu/Clouds/nube3.png" id="8_va23s"]
 [ext_resource type="Texture2D" uid="uid://7y0ou858k5o5" path="res://RECURSOS/menu/Clouds/nube4.png" id="9_mf8q5"]
 [ext_resource type="PackedScene" uid="uid://b0xoojj3afxtu" path="res://SCRIPTS/INTERFAZGAME/interfaz_game.tscn" id="12_55ych"]
-[ext_resource type="PackedScene" uid="uid://8rujt5h2n6bx" path="res://ESCENAS/OPTIONS/GLOBAL/pause_menu.tscn" id="12_prwod"]
+[ext_resource type="PackedScene" uid="uid://c3f751h3xea56" path="res://ESCENAS/OPTIONS/GLOBAL/pause_menu.tscn" id="12_prwod"]
 [ext_resource type="PackedScene" uid="uid://be385umlkleg7" path="res://ESCENAS/OPTIONS/GLOBAL/menu_options.tscn" id="13_puaj8"]
 
 [sub_resource type="Animation" id="Animation_n1mxf"]

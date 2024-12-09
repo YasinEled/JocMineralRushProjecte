@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dnsj81jirigye"]
+[gd_scene load_steps=18 format=3 uid="uid://dnsj81jirigye"]
 
 [ext_resource type="Script" path="res://SCRIPTS/OPTIONS/menu.gd" id="1_gq77o"]
 [ext_resource type="PackedScene" uid="uid://d1i8r4exxov34" path="res://ESCENAS/GAME/map.tscn" id="2_8o7o1"]
@@ -17,8 +17,6 @@
 [ext_resource type="Script" path="res://SCRIPTS/Button/start_game_button.gd" id="11_i3rtm"]
 [ext_resource type="Script" path="res://SCRIPTS/Button/option_button.gd" id="12_e3i1q"]
 [ext_resource type="Script" path="res://SCRIPTS/Button/exit_button.gd" id="13_3lwty"]
-[ext_resource type="Material" uid="uid://b0dsn1nh2vwha" path="res://SCRIPTS/shaders/chromaKey.material" id="17_hm8uj"]
-[ext_resource type="VideoStream" path="res://RECURSOS/introPantallaVerde.ogv" id="18_n7jfg"]
 
 [node name="MENU" type="Control"]
 layout_mode = 3
@@ -179,17 +177,6 @@ theme = ExtResource("6_6727e")
 
 [node name="MENU-OPTIONS" parent="CanvasLayer" instance=ExtResource("7_o77sj")]
 visible = false
-
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="CanvasLayer"]
-material = ExtResource("17_hm8uj")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-stream = ExtResource("18_n7jfg")
-autoplay = true
-expand = true
 
 [connection signal="mouse_entered" from="CanvasLayer/canvasButton/StartGameButton" to="CanvasLayer/canvasButton/StartGameButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/canvasButton/StartGameButton" to="CanvasLayer/canvasButton/StartGameButton" method="_on_mouse_exited"]
