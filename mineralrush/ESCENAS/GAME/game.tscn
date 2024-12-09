@@ -138,10 +138,6 @@ script = ExtResource("1_tcwm6")
 
 [node name="PauseMenu" parent="Camera2D/CanvasLayer2" instance=ExtResource("12_prwod")]
 visible = false
-offset_left = -36.0
-offset_top = -53.0
-offset_right = -36.0
-offset_bottom = -53.0
 
 [node name="MENU-OPTIONS" parent="Camera2D/CanvasLayer2" instance=ExtResource("13_puaj8")]
 visible = false
