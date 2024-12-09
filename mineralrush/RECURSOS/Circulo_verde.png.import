@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qynhxv6v63ar"
-path="res://.godot/imported/stone.png-3edd18f6eb9d8e55b73fbf8d8507b6fe.ctex"
+uid="uid://bv2c41use8fcj"
+path="res://.godot/imported/Circulo_verde.png-04387397847c20a3f2015e483fd65826.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://RECURSOS/GameRes/stone.png"
-dest_files=["res://.godot/imported/stone.png-3edd18f6eb9d8e55b73fbf8d8507b6fe.ctex"]
+source_file="res://RECURSOS/Circulo_verde.png"
+dest_files=["res://.godot/imported/Circulo_verde.png-04387397847c20a3f2015e483fd65826.ctex"]
 
 [params]
 

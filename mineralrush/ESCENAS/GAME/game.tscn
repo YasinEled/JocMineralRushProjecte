@@ -63,6 +63,7 @@ script = ExtResource("1_btuxk")
 [node name="Map" parent="." instance=ExtResource("2_jkggi")]
 
 [node name="newTerreno1" type="Sprite2D" parent="Map"]
+visible = false
 modulate = Color(1, 1, 1, 0.776471)
 z_index = 1
 position = Vector2(671, 79)
@@ -139,3 +140,4 @@ parameters/looping = true
 [node name="InterfazGame" parent="." instance=ExtResource("12_55ych")]
 
 [connection signal="pressed" from="Map/newTerreno1/butMas" to="Map" method="_on_but_mas_pressed"]
+[connection signal="pressed" from="Map/newTerreno1/butMas" to="InterfazGame" method="_on_but_mas_pressed"]
