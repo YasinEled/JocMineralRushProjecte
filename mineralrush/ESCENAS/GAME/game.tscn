@@ -1,0 +1,169 @@
+[gd_scene load_steps=22 format=3 uid="uid://ddyec5m51y065"]
+
+[ext_resource type="Script" path="res://ESCENAS/GAME/game.gd" id="1_btuxk"]
+[ext_resource type="Script" path="res://SCRIPTS/GAME/camera_2d.gd" id="1_tcwm6"]
+[ext_resource type="PackedScene" uid="uid://d1i8r4exxov34" path="res://ESCENAS/GAME/map.tscn" id="2_jkggi"]
+[ext_resource type="Texture2D" uid="uid://dunjw74b531ae" path="res://RECURSOS/mas.png" id="3_njtcp"]
+[ext_resource type="Texture2D" uid="uid://dbt8dpvllmkkt" path="res://RECURSOS/Sprite-0001.png" id="4_6aak0"]
+[ext_resource type="AudioStream" uid="uid://ba5diqj5xx3ln" path="res://RECURSOS/GameRes/GameMusic.mp3" id="4_p8kbp"]
+[ext_resource type="Texture2D" uid="uid://bpplifqump1em" path="res://RECURSOS/menu/Clouds/nube2.png" id="5_djcwc"]
+[ext_resource type="Script" path="res://SCRIPTS/GAME/cloud.gd" id="6_bb44e"]
+[ext_resource type="Texture2D" uid="uid://2s17am4mgxl2" path="res://RECURSOS/menu/Clouds/cloud1.png" id="7_yx5xa"]
+[ext_resource type="Texture2D" uid="uid://b5vkne8w36no1" path="res://RECURSOS/menu/Clouds/nube3.png" id="8_va23s"]
+[ext_resource type="Texture2D" uid="uid://7y0ou858k5o5" path="res://RECURSOS/menu/Clouds/nube4.png" id="9_mf8q5"]
+[ext_resource type="Texture2D" uid="uid://cq44wtlcoupa2" path="res://RECURSOS/GameRes/stoneAvise.png" id="10_70fbr"]
+[ext_resource type="Script" path="res://ESCENAS/GAME/stone_add.gd" id="11_8gux7"]
+[ext_resource type="PackedScene" uid="uid://b0xoojj3afxtu" path="res://SCRIPTS/INTERFAZGAME/interfaz_game.tscn" id="12_55ych"]
+[ext_resource type="PackedScene" uid="uid://c3f751h3xea56" path="res://ESCENAS/OPTIONS/GLOBAL/pause_menu.tscn" id="12_prwod"]
+[ext_resource type="PackedScene" uid="uid://be385umlkleg7" path="res://ESCENAS/OPTIONS/GLOBAL/menu_options.tscn" id="13_puaj8"]
+
+[sub_resource type="Animation" id="Animation_n1mxf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_o7puu"]
+resource_name = "flotante_mas"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.637281, 0.707107),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f0wxc"]
+_data = {
+"RESET": SubResource("Animation_n1mxf"),
+"flotante_mas": SubResource("Animation_o7puu")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_805gs"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3586"]
+draw_center = false
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_btuxk")
+
+[node name="Map" parent="." instance=ExtResource("2_jkggi")]
+
+[node name="newTerreno1" type="Sprite2D" parent="Map"]
+visible = false
+modulate = Color(1, 1, 1, 0.776471)
+z_index = 1
+position = Vector2(671, 79)
+texture = ExtResource("3_njtcp")
+
+[node name="maas" type="Sprite2D" parent="Map/newTerreno1"]
+modulate = Color(1, 1, 1, 0.729412)
+z_index = 1
+position = Vector2(7, 13)
+texture = ExtResource("4_6aak0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Map/newTerreno1"]
+libraries = {
+"": SubResource("AnimationLibrary_f0wxc")
+}
+
+[node name="butMas" type="Button" parent="Map/newTerreno1"]
+offset_left = -79.0
+offset_top = -49.0
+offset_right = 87.0
+offset_bottom = 71.0
+theme_override_styles/pressed = SubResource("StyleBoxFlat_805gs")
+theme_override_styles/normal = SubResource("StyleBoxFlat_i3586")
+
+[node name="shadowCloud2" type="Sprite2D" parent="Map"]
+modulate = Color(0, 0, 0, 0.184314)
+z_index = 1
+position = Vector2(-303, 643.001)
+scale = Vector2(0.111058, 0.0692983)
+texture = ExtResource("5_djcwc")
+script = ExtResource("6_bb44e")
+
+[node name="shadowCloud4" type="Sprite2D" parent="Map"]
+modulate = Color(0, 0, 0, 0.172549)
+z_index = 1
+position = Vector2(-916, 280.999)
+scale = Vector2(0.106693, 0.0541875)
+texture = ExtResource("8_va23s")
+script = ExtResource("6_bb44e")
+
+[node name="shadowCloud5" type="Sprite2D" parent="Map"]
+modulate = Color(0, 0, 0, 0.247059)
+z_index = 1
+position = Vector2(830, 322)
+scale = Vector2(0.0809918, 0.0425299)
+texture = ExtResource("9_mf8q5")
+script = ExtResource("6_bb44e")
+
+[node name="shadowCloud3" type="Sprite2D" parent="Map"]
+modulate = Color(0, 0, 0, 0.172549)
+z_index = 1
+position = Vector2(822, 619.999)
+scale = Vector2(0.106693, 0.0541875)
+texture = ExtResource("8_va23s")
+script = ExtResource("6_bb44e")
+
+[node name="shadowCloud1" type="Sprite2D" parent="Map"]
+modulate = Color(0, 0, 0, 0.298039)
+z_index = 1
+position = Vector2(98.5, 440.74)
+scale = Vector2(0.126389, 0.0965012)
+texture = ExtResource("7_yx5xa")
+script = ExtResource("6_bb44e")
+
+[node name="StoneADD" type="Sprite2D" parent="Map"]
+position = Vector2(837, 97)
+scale = Vector2(0.0277778, 0.0324074)
+texture = ExtResource("10_70fbr")
+script = ExtResource("11_8gux7")
+
+[node name="butStoneADD" type="Button" parent="Map/StoneADD"]
+offset_left = -576.0
+offset_top = -586.0
+offset_right = 504.0
+offset_bottom = 463.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(701, 395)
+script = ExtResource("1_tcwm6")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="Camera2D"]
+
+[node name="PauseMenu" parent="Camera2D/CanvasLayer2" instance=ExtResource("12_prwod")]
+visible = false
+
+[node name="MENU-OPTIONS" parent="Camera2D/CanvasLayer2" instance=ExtResource("13_puaj8")]
+visible = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_p8kbp")
+autoplay = true
+parameters/looping = true
+
+[node name="InterfazGame" parent="." instance=ExtResource("12_55ych")]
+
+[connection signal="pressed" from="Map/newTerreno1/butMas" to="Map" method="_on_but_mas_pressed"]
+[connection signal="pressed" from="Map/newTerreno1/butMas" to="InterfazGame" method="_on_but_mas_pressed"]
+[connection signal="pressed" from="Map/StoneADD/butStoneADD" to="Map/StoneADD" method="_on_but_stone_add_pressed"]
+[connection signal="exit_options_menu" from="Camera2D/CanvasLayer2/MENU-OPTIONS" to="Camera2D/CanvasLayer2/PauseMenu" method="_on_menuoptions_exit_options_menu"]

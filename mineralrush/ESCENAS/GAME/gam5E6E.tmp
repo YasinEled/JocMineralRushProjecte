@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddyec5m51y065"]
+
+[ext_resource type="Script" path="res://SCRIPTS/GAME/game.gd" id="1_rdht3"]
+[ext_resource type="Script" path="res://SCRIPTS/GAME/camera_2d.gd" id="1_tcwm6"]
+[ext_resource type="PackedScene" uid="uid://d1i8r4exxov34" path="res://ESCENAS/GAME/map.tscn" id="2_jkggi"]
+[ext_resource type="Script" path="res://SCRIPTS/GAME/pause.gd" id="4_0gmge"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_rdht3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(701, 395)
+script = ExtResource("1_tcwm6")
+
+[node name="Map" parent="." instance=ExtResource("2_jkggi")]
+
+[node name="pause" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_0gmge")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pause"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="pause/VBoxContainer"]
+layout_mode = 2
+text = "UnPause"
