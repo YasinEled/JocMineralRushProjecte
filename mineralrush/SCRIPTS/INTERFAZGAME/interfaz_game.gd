@@ -3,6 +3,8 @@ extends Control
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var new_terreno_1: Sprite2D = $"../Map/newTerreno1"
 @onready var but_mas: Button = $"../Map/newTerreno1/butMas"
+@onready var but_stone_add: Button = $"../Map/StoneADD/butStoneADD"
+@onready var mineral: Label = $CanvasLayer/Mineral
 
 var esta_bajado = false
 var hayTerreno = false
@@ -40,3 +42,7 @@ func _on_mas_pressed() -> void:
 
 func _on_but_mas_pressed() -> void:
 	comprado = true
+
+
+func _on_but_stone_add_pressed() -> void:
+	mineral.text = "0001"
