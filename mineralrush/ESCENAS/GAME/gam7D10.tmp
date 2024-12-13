@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ddyec5m51y065"]
+[gd_scene load_steps=22 format=3 uid="uid://ddyec5m51y065"]
 
 [ext_resource type="Script" path="res://ESCENAS/GAME/game.gd" id="1_btuxk"]
 [ext_resource type="Script" path="res://SCRIPTS/GAME/camera_2d.gd" id="1_tcwm6"]
@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://cq44wtlcoupa2" path="res://RECURSOS/GameRes/stoneAvise.png" id="10_70fbr"]
 [ext_resource type="Script" path="res://ESCENAS/GAME/stone_add.gd" id="11_8gux7"]
 [ext_resource type="PackedScene" uid="uid://b0xoojj3afxtu" path="res://SCRIPTS/INTERFAZGAME/interfaz_game.tscn" id="12_55ych"]
-[ext_resource type="Texture2D" uid="uid://qynhxv6v63ar" path="res://RECURSOS/INTERFAZ/stone.png" id="12_d0usq"]
 [ext_resource type="PackedScene" uid="uid://c3f751h3xea56" path="res://ESCENAS/OPTIONS/GLOBAL/pause_menu.tscn" id="12_prwod"]
 [ext_resource type="PackedScene" uid="uid://be385umlkleg7" path="res://ESCENAS/OPTIONS/GLOBAL/menu_options.tscn" id="13_puaj8"]
 
@@ -138,13 +137,6 @@ position = Vector2(837, 97)
 scale = Vector2(0.0277778, 0.0324074)
 texture = ExtResource("10_70fbr")
 script = ExtResource("11_8gux7")
-
-[node name="MineralCount" type="TextureRect" parent="Map/StoneADD"]
-offset_left = -540.0
-offset_top = -493.714
-offset_right = 428.0
-offset_bottom = 255.286
-texture = ExtResource("12_d0usq")
 
 [node name="butStoneADD" type="Button" parent="Map/StoneADD"]
 offset_left = -576.0

@@ -5,31 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://6eithotsv4d8" path="res://ESCENAS/OPTIONS/RESOLUTION/resolution_mode_button.tscn" id="2_681is"]
 
 [sub_resource type="GDScript" id="GDScript_dlidj"]
-script/source = "extends Node
-@onready var h_slider: HSlider = $TabContainer/Volumen/MarginContainer/VBoxContainer/HSlider
-@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
-
-
-
-func _ready():
-	pass
-	# Configura el valor inicial del slider de acuerdo con el volumen actual
-	#h_slider.value = audio_stream_player_2d.get_bus_volume_db(audio_stream_player_2d.get_bus_index(\"Master\"))  # Obtén el volumen actual de la bus principal
-
-	# Conectar la señal del slider para cambiar el volumen
-	#h_slider.connect(\"value_changed\", self, \"_on_h_slider_value_changed\")
-	
-
-
-
-
-
-func _on_h_slider_value_changed(value: float) -> void:
-	pass
-  # Cambiar el volumen del bus de audio \"Master\" (puedes modificar el nombre según sea necesario)
-	#var volume_db = value * -80  # Convertir el valor del slider (0-1) a un rango de dB (-80 a 0)
-	#AudioStreamPlayer2D.set_bus_volume_db(AudioStreamPlayer2D.get_bus_index(\"Master\"), volume_db)
-"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j1inx"]
 
@@ -164,3 +139,5 @@ action_name = "move_down"
 layout_mode = 2
 theme_override_constants/separation = 12
 theme_override_styles/separator = SubResource("StyleBoxEmpty_22xhd")
+
+[connection signal="value_changed" from="TabContainer/Volumen/MarginContainer/VBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]

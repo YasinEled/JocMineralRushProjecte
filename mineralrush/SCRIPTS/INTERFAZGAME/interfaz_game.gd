@@ -10,6 +10,7 @@ var esta_bajado = false
 var hayTerreno = false
 var comprado = false
 
+var contadorStone = 0;
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -45,4 +46,5 @@ func _on_but_mas_pressed() -> void:
 
 
 func _on_but_stone_add_pressed() -> void:
-	mineral.text = "0001"
+	contadorStone += 1  # Sumar 1 a contadorStone
+	mineral.text = str(contadorStone)  # Actualiza el texto con el valor de contadorStone
