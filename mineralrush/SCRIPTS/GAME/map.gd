@@ -6,6 +6,22 @@ extends Node
 @onready var stone_add: Sprite2D = $StoneADD
 @onready var animation_player: AnimationPlayer = $newTerreno1/AnimationPlayer
 @onready var interfaz_game: Control = $"../InterfazGame"
+@onready var nivel_1_2: TileMapLayer = $"nivel 1_2"
+@onready var nivel_1: TileMapLayer = $"nivel 1"
+@onready var nivel_1_3: TileMapLayer = $"nivel 1_3"
+@onready var nivel_2: TileMapLayer = $"nivel 2"
+@onready var nivel_1_4: TileMapLayer = $"nivel 1_4"
+@onready var nivel_3: TileMapLayer = $"nivel 3"
+@onready var nivel_1_5: TileMapLayer = $"nivel 1_5"
+@onready var nivel_4: TileMapLayer = $"nivel 4"
+@onready var nivel_1_6: TileMapLayer = $"nivel 1_6"
+@onready var nivel_1_7: TileMapLayer = $"nivel 1_7"
+@onready var nivel_5: TileMapLayer = $"nivel 5"
+@onready var nivel_6: TileMapLayer = $"nivel 6"
+@onready var nivel_7: TileMapLayer = $"nivel 7"
+@onready var nivel_8: TileMapLayer = $"nivel 8"
+@onready var nivel_1_8: TileMapLayer = $"nivel 1_8"
+@onready var nivel_9: TileMapLayer = $"nivel 9"
 
 #map
 @onready var no_jugable: TileMapLayer = $noJUGABLE

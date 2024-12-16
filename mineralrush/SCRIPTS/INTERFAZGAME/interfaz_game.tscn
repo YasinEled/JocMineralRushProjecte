@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b0xoojj3afxtu"]
+[gd_scene load_steps=24 format=3 uid="uid://b0xoojj3afxtu"]
 
 [ext_resource type="Script" path="res://SCRIPTS/INTERFAZGAME/interfaz_game.gd" id="1_p54v5"]
 [ext_resource type="Texture2D" uid="uid://3ss7q5ox0su2" path="res://RECURSOS/INTERFAZ/interfazTop1.png" id="2_67wyr"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://df2jnl50n0gdh" path="res://RECURSOS/INTERFAZ/homeApretado.png" id="4_iv0kt"]
 [ext_resource type="Texture2D" uid="uid://dqltppygvcwvr" path="res://RECURSOS/INTERFAZ/butMasApretado.png" id="5_4xj22"]
 [ext_resource type="Texture2D" uid="uid://dsarhesxik324" path="res://RECURSOS/INTERFAZ/home.png" id="5_ddjda"]
+[ext_resource type="Texture2D" uid="uid://drtcbc5ybugx" path="res://RECURSOS/INTERFAZ/levelUp.png" id="9_elvdi"]
+[ext_resource type="Texture2D" uid="uid://dc1bx4q06wy2m" path="res://RECURSOS/INTERFAZ/levelUpPresionado.png" id="10_48btu"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h2k3a"]
 texture = ExtResource("5_ddjda")
@@ -26,6 +28,15 @@ texture = ExtResource("5_4xj22")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r5ufd"]
 texture = ExtResource("4_2s4np")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6wx0p"]
+texture = ExtResource("9_elvdi")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rm22l"]
+texture = ExtResource("10_48btu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_koqwd"]
+texture = ExtResource("9_elvdi")
 
 [sub_resource type="Animation" id="Animation_6n3ne"]
 resource_name = "MasMenuSuperior"
@@ -49,10 +60,22 @@ tracks/1/path = NodePath("CanvasLayer/ColorRect:size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.133333),
-"transitions": PackedFloat32Array(1, 4.75683),
+"times": PackedFloat32Array(0, 0.133333, 0.2),
+"transitions": PackedFloat32Array(1, 4.75683, 1),
 "update": 0,
-"values": [Vector2(33, 0), Vector2(33, 34)]
+"values": [Vector2(69, 0), Vector2(69, 34), Vector2(69, 34)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/update:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_f3gqh"]
@@ -65,10 +88,10 @@ tracks/0/path = NodePath("CanvasLayer/ColorRect:size")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.133333),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.0666667, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(33, 34), Vector2(33, 0)]
+"values": [Vector2(69, 34), Vector2(69, 17), Vector2(69, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -77,6 +100,18 @@ tracks/1/path = NodePath("CanvasLayer/mas:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/update:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.0666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -109,6 +144,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(33, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/update:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tdvpu"]
 _data = {
@@ -133,9 +180,9 @@ auto_translate_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -46.0
+offset_left = -82.0
 offset_top = 45.0
-offset_right = -13.0
+offset_right = -49.0
 offset_bottom = 45.0
 grow_horizontal = 0
 color = Color(0, 0, 0, 0.807843)
@@ -155,7 +202,7 @@ offset_right = 1077.0
 offset_bottom = 61.0
 scale = Vector2(0.498441, 0.498441)
 theme_override_font_sizes/font_size = 30
-text = "0000
+text = "0
 "
 
 [node name="MineralCount" type="TextureRect" parent="CanvasLayer/Mineral"]
@@ -173,7 +220,7 @@ offset_right = 1138.0
 offset_bottom = 61.0
 scale = Vector2(0.498891, 0.498891)
 theme_override_font_sizes/font_size = 30
-text = "0000"
+text = "0"
 
 [node name="Moneda" type="TextureRect" parent="CanvasLayer/moneyCount"]
 layout_mode = 0
@@ -206,6 +253,17 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_dex8q")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_s54hk")
 theme_override_styles/normal = SubResource("StyleBoxTexture_r5ufd")
 
+[node name="update" type="Button" parent="CanvasLayer"]
+visible = false
+offset_left = 1076.0
+offset_top = 48.0
+offset_right = 1107.0
+offset_bottom = 79.0
+focus_mode = 0
+theme_override_styles/hover = SubResource("StyleBoxTexture_6wx0p")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_rm22l")
+theme_override_styles/normal = SubResource("StyleBoxTexture_koqwd")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_tdvpu")
@@ -213,3 +271,4 @@ libraries = {
 
 [connection signal="pressed" from="CanvasLayer/home" to="." method="_on_home_pressed"]
 [connection signal="pressed" from="CanvasLayer/mas" to="." method="_on_mas_pressed"]
+[connection signal="pressed" from="CanvasLayer/update" to="." method="_on_update_pressed"]
