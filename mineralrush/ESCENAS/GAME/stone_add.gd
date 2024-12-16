@@ -13,3 +13,8 @@ func _ready() -> void:
 func _on_but_stone_add_pressed() -> void:
 	stone_add.visible = false
 	but_stone_add.visible = false
+
+
+func _on_but_mas_pressed() -> void:
+	pass
+		

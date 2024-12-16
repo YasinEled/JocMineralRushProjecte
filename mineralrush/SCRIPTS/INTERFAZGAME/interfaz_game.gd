@@ -41,9 +41,6 @@ func _on_mas_pressed() -> void:
 	
 
 
-func _on_but_mas_pressed() -> void:
-	comprado = true
-
 
 func _on_but_stone_add_pressed() -> void:
 	contadorStone += 1  # Sumar 1 a contadorStone
